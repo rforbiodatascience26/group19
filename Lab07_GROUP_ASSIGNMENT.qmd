@@ -26,27 +26,20 @@ library("here")
 ## Load data
 
 ```{r}
-biopsy_data_file <- here("data", "biopsy.csv")
-if(dir.exists("data")) {
-    print("data directory already exists")
-  } else {
-    print("Creating data directory")
-    dir.create(path = "data")
+data_dir <- here("data")
+biopsy_url <- "https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv"
+biopsy_data_file <- file.path(data_dir, "biopsy.csv")
+if(!dir.exists(data_dir)) {
+    dir.create(path = data_dir)
   }
-  
+
 if(file.exists(biopsy_data_file)) {
-    print("biopsy.csv already exists, loading data")
-  
     biopsy_data <- read_csv(file = biopsy_data_file, 
                           show_col_types = FALSE)
   } else {
     print("Retriving data")
-    
-    # Retrieve the data
-    biopsy_data <- read_csv(file = "https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv",
+    biopsy_data <- read_csv(file = biopsy_url,
                             show_col_types = FALSE)
-
-    # Write the data to disk
     write_csv(x = biopsy_data, file = biopsy_data_file)
   }
 ```
