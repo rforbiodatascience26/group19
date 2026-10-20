@@ -5,7 +5,7 @@ Top 10 Bio Data Science Languages of ALL Time:
 7. Because
 6. programming is subjective
 5. and everyone
-4. has
+4. R
 3. different
 2. tastes
 1. assembly
