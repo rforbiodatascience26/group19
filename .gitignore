@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+data/_raw/
+data
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,r,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,r,git
