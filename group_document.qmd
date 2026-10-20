@@ -1,9 +1,21 @@
 ---
 title: "Group Document"
-format: html
+format: 
+  html:
+    embed-resources: true
+editor: visual
 ---
 
 ### s170287 - Christoffer
+
+New feature
+
+```{r}
+library("ggplot2")
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point()
+```
 
 ------------------------------------------------------------------------
 
@@ -24,5 +36,17 @@ print("Meow")
 ------------------------------------------------------------------------
 
 ### s245107 - Benjamin
+
+------------------------------------------------------------------------
+
+### Conclusions
+
+```{r}
+if (2 + 2 == 5) {
+  print("You are the best.")
+} else {
+  print("You are a bot.")
+}
+```
 
 ------------------------------------------------------------------------
