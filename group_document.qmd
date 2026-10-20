@@ -8,6 +8,15 @@ editor: visual
 
 ### s170287 - Christoffer
 
+New feature
+
+```{r}
+library("ggplot2")
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point()
+```
+
 ------------------------------------------------------------------------
 
 ### s245782 - Charlotte
