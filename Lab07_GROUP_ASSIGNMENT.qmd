@@ -1,5 +1,5 @@
 ---
-title: "Lab7 GROUP ASSIGNMENT"
+title: "Lab 07 Assignment: Group 19"
 format:
   html:
     embed-resources: true
