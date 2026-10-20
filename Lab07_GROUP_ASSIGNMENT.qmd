@@ -24,3 +24,28 @@ library("cowplot")
 ```
 
 ## Load data
+
+## 2D data representation in PC coordinates
+
+```{r}
+# Extract explained variance for PC1 and PC2
+explained_var <- pca_fit |> 
+  tidy(matrix = "eigenvalues") |> 
+  select(1, 2) |> 
+  pluck(percent)
+
+# 2D scatter plot of data projected onto the two major principle components
+pca_fit |> 
+  augment(biopsy) |> 
+  ggplot(aes(x = .fittedPC1,
+             y = .fittedPC2,
+             color = outcome,
+             shape = outcome)) +
+  geom_point(size = 1.5,
+             alpha = 0.5) +
+  theme_minimal() +
+  labs(x = "PC1",
+       y = "PC2",
+       title = "Breast cancer biopsy data projected on PCs")
+  
+```
