@@ -3,4 +3,5 @@ title: "s170287"
 format:
   html:
     embed-resources: true
+editor: visual
 ---
