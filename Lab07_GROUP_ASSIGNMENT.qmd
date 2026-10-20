@@ -20,10 +20,36 @@ editor: visual
 library("tidyverse")
 library("broom")
 library("cowplot")
-
+library("here") 
 ```
 
 ## Load data
+
+```{r}
+biopsy_data_file <- here("data", "biopsy.csv")
+if(dir.exists("data")) {
+    print("data directory already exists")
+  } else {
+    print("Creating data directory")
+    dir.create(path = "data")
+  }
+  
+if(file.exists(biopsy_data_file)) {
+    print("biopsy.csv already exists, loading data")
+  
+    biopsy_data <- read_csv(file = biopsy_data_file, 
+                          show_col_types = FALSE)
+  } else {
+    print("Retriving data")
+    
+    # Retrieve the data
+    biopsy_data <- read_csv(file = "https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv",
+                            show_col_types = FALSE)
+
+    # Write the data to disk
+    write_csv(x = biopsy_data, file = biopsy_data_file)
+  }
+```
 
 ## 2D data representation in PC coordinates
 
@@ -47,5 +73,4 @@ pca_fit |>
   labs(x = "PC1",
        y = "PC2",
        title = "Breast cancer biopsy data projected on PCs")
-  
 ```
