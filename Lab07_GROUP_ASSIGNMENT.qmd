@@ -21,6 +21,7 @@ library("tidyverse")
 library("broom")
 library("cowplot")
 library("here") 
+library("scales")
 ```
 
 ## Load data
@@ -63,16 +64,21 @@ pca_fit <- biopsy_data |>
 
 ### 2D data representation in PC coordinates
 
+Extracting explained variance for PC1 and PC2:
+
 ```{r}
-# Extract explained variance for PC1 and PC2
 explained_var <- pca_fit |> 
   tidy(matrix = "eigenvalues") |> 
-  select(1, 2) |> 
-  pluck(percent)
+  select(percent) |> 
+  slice_head(n = 2) |> 
+  pull()
+```
 
-# 2D scatter plot of data projected onto the two major principle components
-pca_fit |> 
-  augment(biopsy) |> 
+Construting 2D scatter plot of data projected onto the two major principle components:
+
+```{r}
+pca_fit |>
+  augment(biopsy_data) |>
   ggplot(aes(x = .fittedPC1,
              y = .fittedPC2,
              color = outcome,
@@ -82,5 +88,14 @@ pca_fit |>
   theme_minimal() +
   labs(x = "PC1",
        y = "PC2",
-       title = "Breast cancer biopsy data projected on PCs")
+       title = "Breast cancer biopsy data projected on PCs",
+       subtitle = str_c(
+    "Variance explained by PC1 and PC2 respectively is: ",
+    percent(explained_var[1], accuracy = 0.1),
+    " and ",
+    percent(explained_var[2], accuracy = 0.1)
+    ),
+    color = "Outcome",
+    shape = "Outcome"
+  )
 ```
