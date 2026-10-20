@@ -1,6 +1,9 @@
 ---
 title: "Group Document"
-format: html
+format: 
+  html:
+    embed-resources: true
+editor: visual
 ---
 
 ### s170287 - Christoffer
@@ -12,7 +15,6 @@ format: html
 ```{r}
 print("Hello, World!")
 ```
-
 
 ------------------------------------------------------------------------
 
