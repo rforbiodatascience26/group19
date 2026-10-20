@@ -77,3 +77,7 @@ pca_fit |>
        y = "PC2",
        title = "Breast cancer biopsy data projected on PCs")
 ```
+
+```{r}
+# charlot
+```
