@@ -13,3 +13,14 @@ editor: visual
 | s245107      | Benjamin Engelhardt               |
 | s254228      | Pauli Jensen                      |
 | s170287      | Christoffer Brændgaard Kristensen |
+
+## Load Libraries
+
+```{r}
+library("tidyverse")
+library("broom")
+library("cowplot")
+
+```
+
+## Load data
