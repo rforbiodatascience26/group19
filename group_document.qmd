@@ -25,6 +25,14 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 print("Hello, World!")
 ```
 
+### New feature
+
+Program that prints meow
+
+```{r}
+print("Meow")
+```
+
 ------------------------------------------------------------------------
 
 ### s245107 - Benjamin
