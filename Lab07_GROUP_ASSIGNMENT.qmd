@@ -51,7 +51,17 @@ if(file.exists(biopsy_data_file)) {
   }
 ```
 
-## 2D data representation in PC coordinates
+## Analysis
+
+### Applying PCA model
+
+```{r}
+pca_fit <- biopsy_data |> 
+  select(where(is.numeric)) |> 
+  prcomp(scale = TRUE)
+```
+
+### 2D data representation in PC coordinates
 
 ```{r}
 # Extract explained variance for PC1 and PC2
