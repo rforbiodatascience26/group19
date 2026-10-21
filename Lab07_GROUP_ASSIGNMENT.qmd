@@ -3,7 +3,6 @@ title: "Lab 07 Assignment: Group 19"
 format:
   html:
     embed-resources: true
-
 editor: visual
 ---
 
@@ -29,7 +28,9 @@ library("scales")
 ```{r}
 data_dir <- here("data")
 biopsy_url <- "https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv"
-biopsy_data_file <- file.path(data_dir, "biopsy.csv")
+biopsy_data_file <- file.path(data_dir, 
+                              "biopsy.csv")
+
 if(!dir.exists(data_dir)) {
     dir.create(path = data_dir)
   }
@@ -41,7 +42,8 @@ if(file.exists(biopsy_data_file)) {
     print("Retriving data")
     biopsy_data <- read_csv(file = biopsy_url,
                             show_col_types = FALSE)
-    write_csv(x = biopsy_data, file = biopsy_data_file)
+    write_csv(x = biopsy_data, 
+              file = biopsy_data_file)
   }
 ```
 
@@ -84,13 +86,13 @@ pca_fit |>
        title = "Breast cancer biopsy data projected on PCs",
        subtitle = str_c(
     "Variance explained by PC1 and PC2 respectively is: ",
-    percent(explained_var[1], accuracy = 0.1),
+    percent(explained_var[1], 
+            accuracy = 0.1),
     " and ",
-    percent(explained_var[2], accuracy = 0.1)
-    ),
-    color = "Outcome",
-    shape = "Outcome"
-  )
+    percent(explained_var[2], 
+            accuracy = 0.1)),
+       color = "Outcome",
+       shape = "Outcome")
 ```
 
 ```{r}
