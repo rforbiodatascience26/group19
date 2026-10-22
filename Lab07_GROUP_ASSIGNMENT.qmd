@@ -124,5 +124,8 @@ pca_fit |>
   ylim(-0.5,
        1) +
   coord_fixed() +
-  theme_minimal_grid(12)
+  theme_minimal() +
+  labs(x = "PC1",
+       y = "PC2",
+       title = "Rotation matrix of the PCA")
 ```
